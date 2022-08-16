@@ -25,7 +25,7 @@ myDb = client["stream_medical_data"]
 myCollection =myDb["cardiac_failure"]
 
 # path name must be same with producer.
-model = load_model("/home/izzet/Desktop/stream-medical-data/model")
+model = load_model("code/model.pkl")
 
 if __name__ == '__main__':
     # Kafka Consumer 

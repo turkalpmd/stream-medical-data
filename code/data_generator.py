@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("/home/izzet/Desktop/stream-medical-data/all_preprocessed_data.csv")
+df = pd.read_csv("data/cardio_train.csv")
 
 
 def data_creator():
