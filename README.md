@@ -8,7 +8,7 @@ Requirements:
 
 ## This project is about instant analysis of stream data.
 
-![](https://github.com/turkalpmd/stream-medical-data/blob/master/images/unnamed.png)
+![](https://github.com/turkalpmd/stream-medical-data/blob/master/images/unnamed1.png)
 
 The existence of this project is thanks to the pycaret library. I think it is an unusual project.
 
