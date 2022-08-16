@@ -7,7 +7,7 @@ from pycaret.classification import load_model
 from pycaret.classification import*
 import pymongo
 
-conn_str = "mongodb+srv://<username>:<password>@cluster0.bamdej1.mongodb.net/?retryWrites=true&w=majority"
+conn_str = "mongodb+srv://turkalpmd:bölüm35@medical.5ml64kh.mongodb.net/?retryWrites=true&w=majority"
 
 
 try:
