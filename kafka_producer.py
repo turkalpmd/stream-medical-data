@@ -25,5 +25,6 @@ if __name__ == '__main__':
         producer.send('Heart_Failure_Project', dummy_message)
         
         # Sleep for a random number of seconds
-        time_to_sleep = random.randint(1, 100)
+        time_to_sleep = random.randint(1, 2)
         time.sleep(time_to_sleep)
+
