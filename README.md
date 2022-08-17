@@ -78,7 +78,13 @@ Our results:
 
 #### Raw data and preprocessed data in the [data folder](https://github.com/turkalpmd/stream-medical-data/tree/master/data). 
 
+
+
+
 Using the classifier of the pycaret library, I reached the highest result with the gradientboosting algorithm, and this had an accuracy of around 70% as you can see on kaggle. (Model creating notebook in the [code file](https://github.com/turkalpmd/stream-medical-data/blob/master/code/model.ipynb))
+
+
+
 
 After this process, I optimized the model with pycaret and [saved it](https://github.com/turkalpmd/stream-medical-data/blob/master/code/model.pkl).
 
@@ -87,20 +93,32 @@ After this process, I optimized the model with pycaret and [saved it](https://gi
 
 I opened a new topic with Kafdrop on Docker.
 
+
+
+
+
+
 ![](https://github.com/turkalpmd/stream-medical-data/blob/master/images/Screenshot%20from%202022-08-16%2012-03-59.png)
 
 
-Then I set up a data_generator that selects random data from the data I reserved for testing. From here, I created a kafka_producer that can send data at random times. I then collected the data I streamed with Kafka_producer with Kafka_consumer. I instantly predicted the data read by Kafka_consumer with the saved model. I was able to collect the last data and transfer it to mongoDB thanks to the pymongo library.
+
+
+
+* Then I set up a data_generator that selects random data from the data I reserved for testing. From here, I created a kafka_producer that can send data at random times. I then collected the data I streamed with Kafka_producer with Kafka_consumer. I instantly predicted the data read by Kafka_consumer with the saved model. I was able to collect the last data and transfer it to mongoDB thanks to the pymongo library.
 
 ## I now accept that; pycaret is installed, kafka, kafdrop and zookeeper are running on docker and you are a member of mongoDB.
 
-1- Firstly run [kafka_producer.py](https://github.com/turkalpmd/stream-medical-data/blob/master/code/kafka_producer.py)
-    - This code create data from test data. And push to Kafka topic
-2- Then run [kafka_mongo_consumer.py](https://github.com/turkalpmd/stream-medical-data/blob/master/code/kafka_mongo_consumer.py)
-    - This code reading to Kafka topic 
-    - Then predicting
-    - Then adding timestamp
-    - Then push to your MongoDB database
-3- You can collecting data on MongoDB with [pymongo_extraction](https://github.com/turkalpmd/stream-medical-data/blob/master/code/pymongo_extraction.ipynb)
-    - You can use this data for creating new success model for real data
-    - Even for 1354 patients, it has an accuracy of around 70%.
+* 1- Firstly run [kafka_producer.py](https://github.com/turkalpmd/stream-medical-data/blob/master/code/kafka_producer.py)
+*   - This code create data from test data. And push to Kafka topic
+
+
+* 2- Then run [kafka_mongo_consumer.py](https://github.com/turkalpmd/stream-medical-data/blob/master/code/kafka_mongo_consumer.py)
+    * - This code reading to Kafka topic 
+    * - Then predicting
+    * - Then adding timestamp
+    * - Then push to your MongoDB database
+
+
+* 3- You can collecting data on MongoDB with [pymongo_extraction](https://github.com/turkalpmd/stream-medical-data/blob/master/code/pymongo_extraction.ipynb)
+    * - You can use this data for creating new success model for real data
+    * - Even for 1354 patients, it has an accuracy of around 70%.
