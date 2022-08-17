@@ -1,0 +1,51 @@
+version: '3'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.0.1
+    networks:
+      - kaf-cluster
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - 2181:2181
+  kafka:
+    image: confluentinc/cp-kafka:7.0.1
+    networks:
+      - kaf-cluster
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:19092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - 9092:9092
+  kafdrop:
+    image: obsidiandynamics/kafdrop:3.29.0
+    networks:
+      - kaf-cluster
+    depends_on:
+      - kafka
+    ports:
+      - 9000:9000
+    environment:
+      KAFKA_BROKERCONNECT: kafka:19092
+networks:
+  kaf-cluster:
+    driver: bridge
+    
+# kaynak: https://github.com/cigdemkadakoglu/apache-kafka
+
+# # Stop services only
+# docker-compose stop
+
+# # Stop and remove containers, networks..
+# docker-compose down 
+
+# # Down and remove volumes
+# docker-compose down --volumes 
+
+# # Down and remove images
+# docker-compose down --rmi <all|local> 
