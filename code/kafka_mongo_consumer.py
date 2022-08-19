@@ -8,7 +8,7 @@ from pycaret.classification import*
 import pymongo
 
 
-conn_str = "mongodb+srv://<username>:<pasword>@medical.5ml64kh.mongodb.net/?retryWrites=true&w=majority"
+conn_str = "mongodb+srv://<username>:<password>@medical.5ml64kh.mongodb.net/?retryWrites=true&w=majority"
 
 
 try:
@@ -25,9 +25,7 @@ myDb = client["stream_medical_data"]
 myCollection =myDb["cardiac_failure"]
 
 # path name must be same with producer.
-# relative path doesn't work in my local
-# don't use .pkl write just model 
-model = load_model("/home/user/Desktop/main-folder/code/model")
+model = load_model("/home/izzet/Desktop/stream-medical-data/code/model")
 
 if __name__ == '__main__':
     # Kafka Consumer 

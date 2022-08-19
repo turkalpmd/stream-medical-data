@@ -121,4 +121,17 @@ I opened a new topic with Kafdrop on Docker.
 
 * 3- You can collecting data on MongoDB with [pymongo_extraction](https://github.com/turkalpmd/stream-medical-data/blob/master/code/pymongo_extraction.ipynb)
     * - You can use this data for creating new success model for real data
-    * - Even for 1354 patients, it has an accuracy of around 70%.
+    * - Even for 8193 patients, it has an accuracy of around 69%.
+
+    * Classification Report: 
+    *                 precision    recall  f1-score   support
+
+    *            0       0.69      0.72      0.70      4130
+    *            1       0.70      0.66      0.68      4063
+
+    * accuracy                               0.69      8193
+    * macro avg          0.69      0.69      0.69      8193
+    * weighted avg       0.69      0.69      0.69      8193
+
+    * Train Accuracy score: 0.69
+    * Train ROC AUC score: 0.69
