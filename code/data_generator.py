@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("data/cardio_train.csv")
+df = pd.read_csv("data/all_preprocessed_data.csv")
 
 
 def data_creator():
